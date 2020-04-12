@@ -1,0 +1,820 @@
+{
+	"info": {
+		"_postman_id": "9ad51f35-447a-434e-b682-5d8a78cf2a79",
+		"name": "APP_GeographicalLines_TestSuite",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "whenNoAuthHeader_thenUnauthorized",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e66604e0-0fcd-4660-8c8e-d982a1c2da62",
+						"exec": [
+							"pm.test(\"Unauthorized\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/geographicalline",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"geographicalline"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenWrongUsername_thenUnauthorized",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e66604e0-0fcd-4660-8c8e-d982a1c2da62",
+						"exec": [
+							"pm.test(\"Unauthorized\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "wrongusername",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/geographicalline",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"geographicalline"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenWrongPassword_thenUnauthorized",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e66604e0-0fcd-4660-8c8e-d982a1c2da62",
+						"exec": [
+							"pm.test(\"Unauthorized\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "wrongpassword",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "regularuser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/geographicalline",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"geographicalline"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenAnAdminUserPostAGeographicalLine_thenCreated",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "584e0197-2a7a-40ee-9b9a-be84a8272515",
+						"exec": [
+							"pm.test(\"Created\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "adminuser",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"geographicalLineCode\": \"baylimits\",\n\t\"description\" : \"Gibraltar Bay limits\",\n\t\"startPoint\" : {\n\t\t\"longitude\" : -5.431462,\n\t\t\"latitude\": 36.105339\n\t},\n\t\"endPoint\" : {\n\t\t\"longitude\" : -5.346030,\n\t\t\"latitude\": 36.109740 \n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/geographicalline",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"geographicalline"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenARegularUserPostAGeographicalLine_thenForbidden",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "584e0197-2a7a-40ee-9b9a-be84a8272515",
+						"exec": [
+							"pm.test(\"Forbidden\", function () {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "regularuser",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"geographicalLineCode\": \"baylimits\",\n\t\"description\" : \"Gibraltar Bay limits\",\n\t\"startPoint\" : {\n\t\t\"longitude\" : -5.431462,\n\t\t\"latitude\": 36.105339\n\t},\n\t\"endPoint\" : {\n\t\t\"longitude\" : -5.346030,\n\t\t\"latitude\": 36.109740 \n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/geographicalline",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"geographicalline"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenAnAdminUserGetAllGeographicalLines_thenOk",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6b9a9082-7684-4f0c-b9d1-04d66787e384",
+						"exec": [
+							"pm.test(\"Ok\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "adminuser",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/geographicalline",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"geographicalline"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenARegularUserGetAllGeographicalLines_thenOk",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6b9a9082-7684-4f0c-b9d1-04d66787e384",
+						"exec": [
+							"pm.test(\"Ok\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "regularuser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/geographicalline",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"geographicalline"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenAValidUserButWithoutAnyPermissionsGetAllGeographicalLines_thenForbidden",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e66604e0-0fcd-4660-8c8e-d982a1c2da62",
+						"exec": [
+							"pm.test(\"Forbidden\", function () {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "userwithoutanypermission",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/geographicalline",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"geographicalline"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenAnAdminUserPutAnExistingGeographicalLine_thenOK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "584e0197-2a7a-40ee-9b9a-be84a8272515",
+						"exec": [
+							"pm.test(\"OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "adminuser",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"geographicalLineCode\": \"baylimits\",\n\t\"description\" : \"Algeciras Bay limits\",\n\t\"startPoint\" : {\n\t\t\"longitude\" : -5.431462,\n\t\t\"latitude\": 36.105339\n\t},\n\t\"endPoint\" : {\n\t\t\"longitude\" : -5.346030,\n\t\t\"latitude\": 36.109740 \n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/geographicalline/baylimits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"geographicalline",
+						"baylimits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenARegularUserPutAnExistingGeographicalLine_thenForbidden",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "584e0197-2a7a-40ee-9b9a-be84a8272515",
+						"exec": [
+							"pm.test(\"Forbidden\", function () {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "regularuser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"geographicalLineCode\": \"baylimits\",\n\t\"description\" : \"Algeciras Bay limits\",\n\t\"startPoint\" : {\n\t\t\"longitude\" : -5.431462,\n\t\t\"latitude\": 36.105339\n\t},\n\t\"endPoint\" : {\n\t\t\"longitude\" : -5.346030,\n\t\t\"latitude\": 36.109740 \n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/geographicalline/baylimits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"geographicalline",
+						"baylimits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenAnAdminUserGetAnExistingGeographicalLine_thenOk",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "796c677c-dd24-4ed1-bf32-78f104d523b1",
+						"exec": [
+							"pm.test(\"OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Description changed\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"\\\"description\\\":\\\"Algeciras Bay limits\\\"\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "adminuser",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/geographicalline/baylimits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"geographicalline",
+						"baylimits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenARegularUserGetAnExistingGeographicalLine_thenOk",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "796c677c-dd24-4ed1-bf32-78f104d523b1",
+						"exec": [
+							"pm.test(\"OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Description changed\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"\\\"description\\\":\\\"Algeciras Bay limits\\\"\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "regularuser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/geographicalline/baylimits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"geographicalline",
+						"baylimits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenARegularUserDeleteAnExistingGeographicalLines_thenForbidden",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "796c677c-dd24-4ed1-bf32-78f104d523b1",
+						"exec": [
+							"pm.test(\"Forbidden\", function () {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "regularuser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/geographicalline/baylimits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"geographicalline",
+						"baylimits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenAnAdminUserDeleteAnExistingGeographicalLines_thenOk",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "796c677c-dd24-4ed1-bf32-78f104d523b1",
+						"exec": [
+							"pm.test(\"OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "adminuser",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/geographicalline/baylimits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"geographicalline",
+						"baylimits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenNoData_thenNotFound",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e66604e0-0fcd-4660-8c8e-d982a1c2da62",
+						"exec": [
+							"pm.test(\"NOT FOUND\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "adminuser",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/geographicalline",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"geographicalline"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "aaee59fc-5e42-4c41-866e-59c8c0c681ac",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "ec17ae29-72c3-4325-82dd-18773e9407cc",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

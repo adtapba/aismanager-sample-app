@@ -1,0 +1,257 @@
+openapi: 3.0.0
+info:
+  title: AIS manager API
+  version: '1.0'
+  license:
+    name: Apache 2.0
+  description: Sample basic imaginary AIS manager application API
+servers:
+  - url: 'https://localhost:8443'
+    description: localhost
+paths:
+  /geographicalline:
+    get:
+      summary: Gets all geographical lines
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeographicalLines'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      operationId: getGeographicalLines
+      description: Gets all geographical lines
+      security:
+        - Basic Auth: []
+    post:
+      summary: Creates a new geographical line
+      operationId: createsGeographicalLine
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      description: Creates a new geographical line
+      security:
+        - Basic Auth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GeographicalLine'
+  '/geographicalline/{geographicalLineCode}':
+    parameters:
+      - schema:
+          type: string
+        name: geographicalLineCode
+        in: path
+        description: Geographical line code
+        required: true
+    get:
+      summary: Gets an existing geographical line
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeographicalLine'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      operationId: getGeographicalLine
+      description: Gets an existing geographical line
+      security:
+        - Basic Auth: []
+    put:
+      summary: Update an existing geographical line
+      operationId: updateGeographicalLine
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      description: Update an existing geographical line
+      security:
+        - Basic Auth: []
+    delete:
+      summary: Delete an existing geographical line
+      operationId: deleteGeographicalLine
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      description: Delete an existing geographical line
+  /trackevent:
+    post:
+      summary: Creates a new track event
+      operationId: createTrackEvent
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      description: Creates a new track event
+      security:
+        - Basic Auth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrackEvent'
+  '/position/{vesselImoCode}':
+    get:
+      summary: Gets position
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Coordinates'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      operationId: getPosition
+      description: Gets the last known position of a vessel
+      security:
+        - Basic Auth: []
+    parameters:
+      - schema:
+          type: integer
+          maximum: 9999999
+          minimum: 1000000
+        name: vesselImoCode
+        in: path
+        required: true
+        description: |
+          Vessel IMO code
+components:
+  schemas:
+    Coordinates:
+      title: Coordinates
+      type: object
+      description: Geographical coordinates
+      properties:
+        latitude:
+          type: number
+          format: float
+          example: '39.45375'
+          minimum: -90
+          maximum: 90
+        longitude:
+          type: number
+          format: float
+          example: '-9.855833'
+          minimum: -90
+          maximum: 90
+      required:
+        - latitude
+        - longitude
+    GeographicalLine:
+      title: GeographicalLine
+      type: object
+      properties:
+        geographicalLineCode:
+          type: string
+          example: 'baylimits'
+        descripcion:
+          type: string
+          example: 'Bay limits'
+        startPoint:
+          $ref: '#/components/schemas/Coordinates'
+        endPoint:
+          $ref: '#/components/schemas/Coordinates'
+        geographicalLineCode:
+          type: integer
+          format: int64
+      required:
+        - geographicalLineCode
+        - startPoint
+        - endPoint
+    GeographicalLines:
+      title: GeographicalLines
+      type: array
+      items:
+        $ref: '#/components/schemas/GeographicalLine'
+    Vessel:
+      title: Vessel
+      type: object
+      properties:
+        imoCode:
+          type: integer
+          format: int64
+          example: '9321483'
+          minimum: 1000000
+          maximum: 9999999
+        mmsi:
+          type: integer
+          format: int64
+          example: '220417000'
+          minimum: 100000000
+          maximum: 999999999
+        name:
+          type: string
+          example: EMMA MAERSK
+      required:
+        - imoCode
+        - mmsi
+        - name
+    TrackEvent:
+      title: TrackEvent
+      type: object
+      properties:
+        uuid:
+          type: string
+          example: 8eb3d6a2-cd52-47ea-84c5-60623a407b46
+        timestamp:
+          type: string
+          format: date-time
+          example: '2020-04-10T18:25:43.511Z'
+        vessel:
+          $ref: '#/components/schemas/Vessel'
+        coordinates:
+          $ref: '#/components/schemas/Coordinates'
+      required:
+        - uuid
+        - timestamp
+        - vessel
+        - coordinates
+  securitySchemes:
+    Basic Auth:
+      type: http
+      scheme: basic

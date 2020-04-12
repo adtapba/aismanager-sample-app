@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <security-constraint>
+        <display-name>GeographicalLinesAdminSecurityConstraint</display-name>
+        <web-resource-collection>
+            <web-resource-name>Admin</web-resource-name>
+            <description/>
+            <url-pattern>/resources/geographicalline</url-pattern>
+            <url-pattern>/resources/geographicalline/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>adminusers</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>GeographicalLinesRegularSecurityConstraint</display-name>
+        <web-resource-collection>
+            <web-resource-name>Regular</web-resource-name>
+            <description/>
+            <url-pattern>/resources/geographicalline</url-pattern>
+            <url-pattern>/resources/geographicalline/*</url-pattern>
+            <http-method>GET</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>regularusers</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>ApplicationRealm</realm-name>
+    </login-config>
+    <security-role>
+        <description/>
+        <role-name>adminusers</role-name>
+    </security-role>
+    <security-role>
+        <description/>
+        <role-name>regularusers</role-name>
+    </security-role>
+</web-app>
