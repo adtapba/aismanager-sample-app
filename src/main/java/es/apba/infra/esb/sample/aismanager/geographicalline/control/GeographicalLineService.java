@@ -19,7 +19,7 @@ public class GeographicalLineService {
     GeographicalLineRepository repository;
 
     @Inject
-    private Event<Notification> notification;
+    Event<Notification> notification;
 
     public List<GeographicalLine> findAll() {
         return repository.findAll();

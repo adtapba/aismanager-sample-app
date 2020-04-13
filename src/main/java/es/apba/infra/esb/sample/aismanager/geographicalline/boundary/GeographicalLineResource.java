@@ -85,7 +85,7 @@ public class GeographicalLineResource {
                     getURI(output.getGeographicalLineCode()))
                     .build();
 
-            logger.log(Level.INFO, "Geographical line created {0}", output);
+            logger.log(Level.INFO, "Geographical line created {0}", output.getGeographicalLineCode());
         } catch (Exception ex) {
             logger.log(Level.SEVERE, null, ex);
 

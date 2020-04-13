@@ -5,6 +5,7 @@ import es.apba.infra.esb.sample.aismanager.common.entity.Coordinates;
 import java.io.Serializable;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.Transient;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +26,9 @@ import lombok.ToString;
 public class TrackEvent extends VesselEvent implements Serializable {
     
     private static final long serialVersionUID = 4036137683091524280L;
+    
+    @Transient
+    private String uuid;
     
     @Embedded
     private Coordinates coordinates;

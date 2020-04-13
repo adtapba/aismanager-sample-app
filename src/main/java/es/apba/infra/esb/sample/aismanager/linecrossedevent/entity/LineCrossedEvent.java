@@ -27,7 +27,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class LineCrossedEvent extends VesselEvent implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 554652095663111055L;
     
     private final String uuid = UUID.randomUUID().toString();
     
