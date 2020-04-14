@@ -26,6 +26,7 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(es.apba.infra.esb.sample.aismanager.geographicalline.boundary.GeographicalLineResource.class);
+        resources.add(es.apba.infra.esb.sample.aismanager.position.boundary.PositionResource.class);
         resources.add(es.apba.infra.esb.sample.aismanager.trackevent.boundary.TrackEventResource.class);
     }
     

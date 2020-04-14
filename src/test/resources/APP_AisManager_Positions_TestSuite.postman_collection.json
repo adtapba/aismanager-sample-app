@@ -1,0 +1,635 @@
+{
+	"info": {
+		"_postman_id": "ec788097-b498-4f8c-9a4e-ad7daade6bcb",
+		"name": "APP_AisManager_Positions_TestSuite",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "setupFirstTrackEvent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "954b13cd-e444-4c91-99c1-84c3ac8eb4bd",
+						"exec": [
+							"pm.test(\"Created\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "adminuser",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"uuid\" : \"8eb3d6a2-cd52-47ea-84c5-60623a407b46\",\n\t\"timestamp\" : \"2020-04-10T18:25:43.511Z\",\n\t\"vessel\" : {\n\t\t\"imoCode\" : 9321483,\n\t\t\"mmsi\" : 220417000,\n\t\t\"name\" : \"EMMA MAERSK\"\n\t},\n\t\"coordinates\" : {\n\t\t\"longitude\" : -5.431462,\n\t\t\"latitude\": 36.105339\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/trackevent",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"trackevent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "setupSecondTrackEvent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "954b13cd-e444-4c91-99c1-84c3ac8eb4bd",
+						"exec": [
+							"pm.test(\"Created\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "adminuser",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"uuid\" : \"8eb3d6a2-cd52-47ea-84c5-60623a407b47\",\n\t\"timestamp\" : \"2020-04-10T18:35:40.214Z\",\n\t\"vessel\" : {\n\t\t\"imoCode\" : 9321483,\n\t\t\"mmsi\" : 220417000,\n\t\t\"name\" : \"EMMA MAERSK\"\n\t},\n\t\"coordinates\" : {\n\t\t\"longitude\" : -5.431462,\n\t\t\"latitude\": 36.105442\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/trackevent",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"trackevent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "setupThirdTrackEvent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "954b13cd-e444-4c91-99c1-84c3ac8eb4bd",
+						"exec": [
+							"pm.test(\"Created\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "adminuser",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"uuid\" : \"8eb3d6a2-cd52-47ea-84c5-60623a407b48\",\n\t\"timestamp\" : \"2020-04-10T18:30:10.187Z\",\n\t\"vessel\" : {\n\t\t\"imoCode\" : 9321483,\n\t\t\"mmsi\" : 220417000,\n\t\t\"name\" : \"EMMA MAERSK\"\n\t},\n\t\"coordinates\" : {\n\t\t\"longitude\" : -5.431462,\n\t\t\"latitude\": 36.105440\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/trackevent",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"trackevent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "setupFourthTrackEvent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "954b13cd-e444-4c91-99c1-84c3ac8eb4bd",
+						"exec": [
+							"pm.test(\"Created\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "adminuser",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"uuid\" : \"8eb3d6a2-cd52-47ea-84c5-60623a407b50\",\n\t\"timestamp\" : \"2020-04-08T10:20:10.188Z\",\n\t\"vessel\" : {\n\t\t\"imoCode\" : 9454395,\n\t\t\"mmsi\" : 228316800,\n\t\t\"name\" : \"CMA CGM AMERIGO VESPUCCI\"\n\t},\n\t\"coordinates\" : {\n\t\t\"longitude\" : -5.431462,\n\t\t\"latitude\": 36.105650 \n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/trackevent",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"trackevent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenNoAuthHeader_thenUnauthorized",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e66604e0-0fcd-4660-8c8e-d982a1c2da62",
+						"exec": [
+							"pm.test(\"Unauthorized\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/position/9321483",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"position",
+						"9321483"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenWrongUsername_thenUnauthorized",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e66604e0-0fcd-4660-8c8e-d982a1c2da62",
+						"exec": [
+							"pm.test(\"Unauthorized\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "wrongusername",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/position/9321483",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"position",
+						"9321483"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenWrongPassword_thenUnauthorized",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e66604e0-0fcd-4660-8c8e-d982a1c2da62",
+						"exec": [
+							"pm.test(\"Unauthorized\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "wrongpassword",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "regularuser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/position/9321483",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"position",
+						"9321483"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenAValidUserButWithoutAnyPermissionsGetsThePositionOfAnExistingVessel_thenForbidden",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e66604e0-0fcd-4660-8c8e-d982a1c2da62",
+						"exec": [
+							"pm.test(\"Forbidden\", function () {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "userwithoutanypermission",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/position/9321483",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"position",
+						"9321483"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenARegularUserGetsThePositionOfAnExistingVessel_thenOk",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "954b13cd-e444-4c91-99c1-84c3ac8eb4bd",
+						"exec": [
+							"pm.test(\"Ok\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Last Latitude received\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"\\\"latitude\\\":36.105442\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "regularuser",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/position/9321483",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"position",
+						"9321483"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenLookingForAnNonRegisteredVessel_thenNotFound",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "954b13cd-e444-4c91-99c1-84c3ac8eb4bd",
+						"exec": [
+							"pm.test(\"Not found\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "regularuser",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/position/9321482",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"position",
+						"9321482"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "whenAnAdminUserGetsThePositionOfAnExistingVessel_thenOk",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "954b13cd-e444-4c91-99c1-84c3ac8eb4bd",
+						"exec": [
+							"pm.test(\"Ok\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Last Latitude received\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"\\\"latitude\\\":36.10565\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "adminuser",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/aismanager/resources/position/9454395",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aismanager",
+						"resources",
+						"position",
+						"9454395"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

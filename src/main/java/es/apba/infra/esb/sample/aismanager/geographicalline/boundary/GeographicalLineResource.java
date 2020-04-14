@@ -99,7 +99,7 @@ public class GeographicalLineResource {
     }
 
     @GET
-    @Path("{geographicalLineCode}")
+    @Path("/{geographicalLineCode}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response get(@PathParam("geographicalLineCode") String geographicalLineCode) {
         Response response;
@@ -131,7 +131,7 @@ public class GeographicalLineResource {
     }
 
     @PUT
-    @Path("{geographicalLineCode}")
+    @Path("/{geographicalLineCode}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response update(@PathParam("geographicalLineCode") String geographicalLineCode, GeographicalLine geographicalLine) {
         Response response;
@@ -164,7 +164,7 @@ public class GeographicalLineResource {
     }
 
     @DELETE
-    @Path("{geographicalLineCode}")
+    @Path("/{geographicalLineCode}")
     public Response delete(@PathParam("geographicalLineCode") String geographicalLineCode) {
         Response response;
 
