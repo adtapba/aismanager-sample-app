@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "9ad51f35-447a-434e-b682-5d8a78cf2a79",
-		"name": "APP_GeographicalLines_TestSuite",
+		"name": "APP_AisManager_GeographicalLines_TestSuite",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [

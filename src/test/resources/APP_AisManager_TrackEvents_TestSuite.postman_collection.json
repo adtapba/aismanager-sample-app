@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "b012f782-7127-4748-b35f-5efba26b7923",
-		"name": "APP_TrackEvents_TestSuite",
+		"name": "APP_AisManager_TrackEvents_TestSuite",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
