@@ -1,4 +1,4 @@
-# AIS Manager
+# AIS Manager - Application
 
 ### Introducción
 
