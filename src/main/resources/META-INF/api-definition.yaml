@@ -196,9 +196,6 @@ components:
           $ref: '#/components/schemas/Coordinates'
         endPoint:
           $ref: '#/components/schemas/Coordinates'
-        geographicalLineCode:
-          type: integer
-          format: int64
       required:
         - geographicalLineCode
         - startPoint
